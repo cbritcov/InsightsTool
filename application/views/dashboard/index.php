@@ -16,13 +16,25 @@
 
 <?php
 if (!empty($error_message)) {
-    echo "<pre>";
-    var_dump($error_message);
-    echo "</pre>";
+
+    echo $error_message;
+
 } elseif (!empty($search_result)) {
 
     echo "<pre>";
     var_dump($search_result);
     echo "</pre>";
+
+    if($previous_cursor != 0){
+    ?>
+        <a href="<?$twitter_url?>'='<?previous_cursor_str?>"PREVIOUS/>
+    <?php
+    }
+    if($next_cursor != 0){
+        echo "i am here";
+        ?>
+        <a href="<?$twitter_url?>'='<?$next_cursor_str?>"NEXT/>
+    <?php
+    }
 }
 ?>
